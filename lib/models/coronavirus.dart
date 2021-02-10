@@ -1,13 +1,14 @@
 import 'dart:convert';
 
-List<Welcome> welcomeFromJson(String str) =>
-    List<Welcome>.from(json.decode(str).map((x) => Welcome.fromJson(x)));
+List<CoronaVirusModel> coronaVirusModelFromJson(String str) =>
+    List<CoronaVirusModel>.from(
+        json.decode(str).map((x) => CoronaVirusModel.fromJson(x)));
 
-String welcomeToJson(List<Welcome> data) =>
+String coronaVirusModelToJson(List<CoronaVirusModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Welcome {
-  Welcome({
+class CoronaVirusModel {
+  CoronaVirusModel({
     this.updated,
     this.country,
     this.countryInfo,
@@ -57,7 +58,8 @@ class Welcome {
   double recoveredPerOneMillion;
   double criticalPerOneMillion;
 
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+  factory CoronaVirusModel.fromJson(Map<String, dynamic> json) =>
+      CoronaVirusModel(
         updated: json["updated"],
         country: json["country"],
         countryInfo: CountryInfo.fromJson(json["countryInfo"]),
