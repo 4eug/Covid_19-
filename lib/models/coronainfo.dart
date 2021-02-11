@@ -1,14 +1,13 @@
 import 'dart:convert';
 
-List<CoronaVirusModel> coronaVirusModelFromJson(String str) =>
-    List<CoronaVirusModel>.from(
-        json.decode(str).map((x) => CoronaVirusModel.fromJson(x)));
+List<CoronaModel> coronaModelFromJson(String str) => List<CoronaModel>.from(
+    json.decode(str).map((x) => CoronaModel.fromJson(x)));
 
-String coronaVirusModelToJson(List<CoronaVirusModel> data) =>
+String coronaModelToJson(List<CoronaModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class CoronaVirusModel {
-  CoronaVirusModel({
+class CoronaModel {
+  CoronaModel({
     this.updated,
     this.country,
     this.countryInfo,
@@ -58,8 +57,7 @@ class CoronaVirusModel {
   double recoveredPerOneMillion;
   double criticalPerOneMillion;
 
-  factory CoronaVirusModel.fromJson(Map<String, dynamic> json) =>
-      CoronaVirusModel(
+  factory CoronaModel.fromJson(Map<String, dynamic> json) => CoronaModel(
         updated: json["updated"],
         country: json["country"],
         countryInfo: CountryInfo.fromJson(json["countryInfo"]),
